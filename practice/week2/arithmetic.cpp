@@ -1,8 +1,8 @@
 #include <iostream> // 헤더파일 iostream 포함
 
-using namespace std;
+using namespace std; // 이름 공간 설정
 
-int main() {
+int main() { // main 함수를 선언한다.
 
 	int one = 1; // int형 변수 one을 선언하고 값에 1을 저장한다.
 	int two = 2; // int형 변수 two를 선언하고 값에 2를 저장한다.

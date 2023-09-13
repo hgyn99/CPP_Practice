@@ -1,8 +1,8 @@
 #include <iostream> // 헤더파일 iostream 포함
 
-using namespace std;
+using namespace std; // 이름 공간 설정
 
-int main() {
+int main() { // main 함수를 선언한다.
 
 	cout << "char 크기 : " << sizeof('p') << endl; // char의 크기를 출력한다.
 	cout << "int 크기 : " << sizeof(10) << endl; // int의 크기를 출력한다.

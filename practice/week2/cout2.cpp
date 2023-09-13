@@ -1,9 +1,9 @@
 #include <iostream> // 헤더파일 iostream 포함
-#include <string>
+#include <string> // 헤더파일 string 포함
 
-using namespace std;
+using namespace std; // 이름 공간 설정
 
-int main() {
+int main() { // main 함수를 선언한다.
 
 	char character = 'C'; // char 타입 변수 character를 선언하고 'C'를 저장한다.
 	int integer = 100; // int 타입 변수 integer를 선언하고 100을 저장한다.
