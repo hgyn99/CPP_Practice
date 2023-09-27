@@ -27,12 +27,12 @@ int main() {
     cout << ageThreshold << "세 이상인 고객들:\n";
     // 특정 나이 이상인 고객들을 출력한다.
 
-    int cnt = 0;
+    int cnt = 0; // 특정 나이 이상인 고객들의 명수를 체크하기 위한 변수 cnt 선언
 
     for (int i = 0; i < maxPeople; i++) {
         if (ages[i] >= ageThreshold) {
             cout << names[i] << " (" << ages[i] << "세)" << endl;
-            cnt++;
+            cnt++; // 특정 나이 이상인 고객이 있었다면 cnt를 증가시킨다.
         }
     }
     // i=0부터 i<3이 될 때까지 i를 1씩 증가하며 반복문을 반복하여,
