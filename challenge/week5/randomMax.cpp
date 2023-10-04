@@ -24,10 +24,9 @@ int main() {
 
 	for (int i = 0; i < numCell; i++) {
 		int j = 0; // 범위 기반 탐색을 위해 j 인덱스를 따로 선언
-		for (auto elem : numList[i]) {
-			int value = numList[i][j]; // 난수 값들을 우선 value에 저장
-			if (value > max) { // 최대값 관련 정보를 저장하는 코드
-				max = value;
+		for (auto elem : numList[i]) { // numList[i]에 있는 값들이 하나씩 elem에 저장
+			if (elem > max) { // 최대값 관련 정보를 저장하는 코드
+				max = elem;
 				maxI = i;
 				maxJ = j;
 			}
