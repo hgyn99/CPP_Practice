@@ -2,8 +2,8 @@
 #include <string>
 using namespace std;
 
-const int mapX = 5;
-const int mapY = 5;
+const int mapX = 5; // 지도의 가로축 크기
+const int mapY = 5; // 지도의 세로축 크기
 
 // 추가 기능 요구사항 1. 유저는 체력 20을 가지고 게임 시작
 int user_hp = 20;
@@ -36,17 +36,20 @@ int main() {
 		// 사용자의 입력을 저장할 변수
 		string user_input = "";
 
+		// 명령어를 입력할 것을 안내
 		cout << "명령어를 입력하세요 (상,하,좌,우,지도,종료): ";
 		cin >> user_input;
 
-		if (user_input == "상") {
+		if (user_input == "상") { // 사용자가 입력으로 "상"을 입력했다면
 			// 위로 한 칸 올라가기
-			user_y -= 1;
-			bool inMap = checkXY(user_x, mapX, user_y, mapY);
+			user_y -= 1; // 사용자의 y 좌표를 -1만큼 변경하여 위치를 위로 올림
+			bool inMap = checkXY(user_x, mapX, user_y, mapY); // 사용자의 위치에 대한 유효성을 bool 변수로 저장함
+			// 지도를 벗어났을 시 에러 메세지 출력 후 위치 복구
 			if (inMap == false) {
 				cout << "맵을 벗어났습니다. 다시 돌아갑니다." << endl;
 				user_y += 1;
 			}
+			// 정상적인 입력이라면 위치 이동
 			else {
 				cout << "위로 한 칸 올라갑니다." << endl;
 				displayMap(map, user_x, user_y);
@@ -56,15 +59,17 @@ int main() {
 				user_hp--;
 				cout << "현재 HP: " << user_hp << " ";
 			}
-		}
-		else if (user_input == "하") {
+		} 
+		else if (user_input == "하") { // 사용자가 입력으로 "하"를 입력했다면
 			// 아래로 한 칸 내려가기
-			user_y += 1;
-			bool inMap = checkXY(user_x, mapX, user_y, mapY);
+			user_y += 1; // 사용자의 y 좌표를 +1만큼 변경하여 위치를 아래로 올림
+			bool inMap = checkXY(user_x, mapX, user_y, mapY); // 사용자의 위치에 대한 유효성을 bool 변수로 저장함
+			// 지도를 벗어났을 시 에러 메세지 출력 후 위치 복구
 			if (inMap == false) {
 				cout << "맵을 벗어났습니다. 다시 돌아갑니다." << endl;
 				user_y -= 1;
 			}
+			// 정상적인 입력이라면 위치 이동
 			else {
 				cout << "아래로 한 칸 내려갑니다." << endl;
 				displayMap(map, user_x, user_y);
@@ -75,15 +80,16 @@ int main() {
 				cout << "현재 HP: " << user_hp << " ";
 			}
 		}
-		else if (user_input == "좌") {
+		else if (user_input == "좌") { // 사용자가 입력으로 "좌"를 입력했다면
 			// 왼쪽으로 이동하기
-			user_x -= 1;
-			bool inMap = checkXY(user_x, mapX, user_y, mapY);
-
+			user_x -= 1; // 사용자의 x 좌표를 -1만큼 변경하여 위치를 왼쪽으로 이동함
+			bool inMap = checkXY(user_x, mapX, user_y, mapY); // 사용자의 위치에 대한 유효성을 bool 변수로 저장함
+			// 지도를 벗어났을 시 에러 메세지 출력 후 위치 복구
 			if (inMap == false) {
 				cout << "맵을 벗어났습니다. 다시 돌아갑니다." << endl;
 				user_x += 1;
 			}
+			// 정상적인 입력이라면 위치 이동
 			else {
 				cout << "왼쪽으로 이동합니다." << endl;
 				displayMap(map, user_x, user_y);
@@ -94,14 +100,16 @@ int main() {
 				cout << "현재 HP: " << user_hp << " ";
 			}
 		}
-		else if (user_input == "우") {
+		else if (user_input == "우") { // 사용자가 입력으로 "우"를 입력했다면
 			// 오른쪽으로 이동하기
-			user_x += 1;
-			bool inMap = checkXY(user_x, mapX, user_y, mapY);
+			user_x += 1; // 사용자의 x 좌표를 +1만큼 변경하여 위치를 오른쪽으로 이동함
+			bool inMap = checkXY(user_x, mapX, user_y, mapY); // 사용자의 위치에 대한 유효성을 bool 변수로 저장함
+			// 지도를 벗어났을 시 에러 메세지 출력 후 위치 복구
 			if (inMap == false) {
 				cout << "맵을 벗어났습니다. 다시 돌아갑니다." << endl;
 				user_x -= 1;
 			}
+			// 정상적인 입력이라면 위치 이동
 			else {
 				cout << "오른쪽으로 이동합니다." << endl;
 				displayMap(map, user_x, user_y);
@@ -112,15 +120,20 @@ int main() {
 				cout << "현재 HP: " << user_hp << " ";
 			}
 		}
+		// 사용자가 입력으로 "지도"를 입력했다면
 		else if (user_input == "지도") {
 			// 지도 보여주기 함수 호출
 			displayMap(map, user_x, user_y);
 		}
+		// 사용자가 입력으로 "종료"를 입력했다면
 		else if (user_input == "종료") {
+			// 종료 메세지 출력
 			cout << "종료합니다.";
 			break;
 		}
+		// 사용자가 존재하지 않는 명령을 입력했다면
 		else {
+			// 에러 메세지 출력 후 재입력 받도록 continue
 			cout << "잘못된 입력입니다." << endl;
 			continue;
 		}
