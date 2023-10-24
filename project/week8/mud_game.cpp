@@ -59,7 +59,7 @@ int main() {
 				user_hp--;
 				cout << "현재 HP: " << user_hp << " ";
 			}
-		} 
+		}
 		else if (user_input == "하") { // 사용자가 입력으로 "하"를 입력했다면
 			// 아래로 한 칸 내려가기
 			user_y += 1; // 사용자의 y 좌표를 +1만큼 변경하여 위치를 아래로 올림
@@ -142,6 +142,7 @@ int main() {
 		if (user_hp <= 0) {
 			cout << "HP가 0 이하가 되었습니다. 실패했습니다." << endl;
 			cout << "게임을 종료합니다." << endl;
+			return 0;
 		}
 
 		// 목적지에 도달했는지 체크
@@ -210,7 +211,7 @@ bool checkGoal(int map[][mapX], int user_x, int user_y) {
 
 // 추가 기능 요구사항 5. 아이템, 적, 포션이 있을 때 출력하는 함수
 void checkState(int map[][mapX], int user_x, int user_y) {
-	
+
 	if (map[user_y][user_x] == 1) { // 아이템이 있을 때
 		cout << "아이템이 있습니다." << endl;
 	}
@@ -219,7 +220,8 @@ void checkState(int map[][mapX], int user_x, int user_y) {
 		user_hp -= 2;
 	}
 	else if (map[user_y][user_x] == 3) { // 포션이 있을 때
-		cout << "아이템이 있습니다. HP가 2 늘어납니다." << endl;
+		cout << "포션이 있습니다. HP가 2 늘어납니다." << endl;
 		user_hp += 2;
 	}
 }
+
